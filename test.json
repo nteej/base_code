@@ -1,0 +1,175 @@
+{
+    "vqlCmdResponse": {
+        "layoutStatus": {
+            "active_tab": "Sri Lanka (geodata.alekando.ru)",
+            "isViewModified": true,
+            "undoPosition": 11,
+            "urlActionList": [],
+            "vizStateList": [
+                {
+                    "sheet": "Sri Lanka (geodata.alekando.ru)",
+                    "vizRegionRectList": [
+                        {
+                            "x": 0,
+                            "y": 0,
+                            "w": 879,
+                            "h": 477,
+                            "r": "viz"
+                        }
+                    ]
+                }
+            ],
+            "applicationPresModel": {
+                "renderMode": "render-mode-server",
+                "workbookPresModel": {
+                    "dashboardPresModel": {
+                        "zones": {
+                            "2": {
+                                "zoneId": 2,
+                                "zoneZOrder": 1,
+                                "worksheet": "Sri Lanka (geodata.alekando.ru)",
+                                "presModelHolder": {
+                                    "visual": {
+                                        "hasVizArtTemplate": false,
+                                        "hasVizExtension": false,
+                                        "selectionList": [
+                                            {
+                                                "selectionType": "tuples",
+                                                "objectIds": [
+                                                    13153
+                                                ],
+                                                "selectedNodes": [],
+                                                "orientedNodeReferences": [],
+                                                "webClientShouldUpdateLabelInfo": false
+                                            }
+                                        ],
+                                        "brushingSelectionList": [],
+                                        "annotationList": [],
+                                        "vizAltText": "Shape chart of Longitude Latitude",
+                                        "geometryJson": "{\"di\":{\"xs\":0,\"xy\":[[0,0]],\"ys\":0,\"yx\":[[0,0]]},\"pi\":{\"hasXQAxis\":true,\"hasYQAxis\":true,\"layerCount\":1,\"xWidths\":[879],\"yHeights\":[477]},\"ri\":[{\"h\":478,\"r\":\"viz\",\"w\":880,\"x\":0,\"y\":43},{\"h\":40,\"r\":\"title\",\"w\":879,\"x\":1,\"y\":0}],\"ts\":{\"h\":521,\"w\":880}}",
+                                        "cacheUrlInfoJson": "{\"url\":\"/vizql/tilecache/%SESSIONID%/9100/05ea9d56f617d24e2f88049acc9fb9bda4cb17fcf4b8318b11e38c770168ffe7/views.7713620505763405234_10944139994659924105.[r].[x].[y].png\",\"useUrl\":true}",
+                                        "isMap": true,
+                                        "hasBackgroundImage": false,
+                                        "floatingToolbarVisibility": "hide",
+                                        "geographicSearchVisibility": "off",
+                                        "vizNavigationSetting": "auto",
+                                        "isLayerControlButtonAllowed": false,
+                                        "isLayerControlButtonEnabled": true,
+                                        "wholeVizScrollThreshold": 879,
+                                        "defaultMapToolEnum": "rectangular-selection",
+                                        "hasModifiedAxes": true,
+                                        "valid": true,
+                                        "tooltipMode": "sticky",
+                                        "bgColor": "rgb(255,255,255)",
+                                        "paneColor": "rgb(255,255,255)",
+                                        "headerColor": "rgb(255,255,255)",
+                                        "emptyHighlightFogAll": false,
+                                        "totalMarks": 47601,
+                                        "shouldShowStats": false,
+                                        "showImageLimitToast": false,
+                                        "selectedMarks": 0,
+                                        "numberOfColumns": 0,
+                                        "numberOfRows": 0,
+                                        "lastComputedCalculation": "",
+                                        "blockMarkAnimationForNextCommand": false
+                                    }
+                                },
+                                "hasCaption": false,
+                                "isVisible": true,
+                                "sheet": "Sri Lanka (geodata.alekando.ru)",
+                                "bgColor": "rgba(0,0,0,0)",
+                                "blendedZoneContentColor": "rgb(255,255,255)"
+                            }
+                        },
+                        "activeZoneId": 2,
+                        "activeZoneIds": [],
+                        "userActions": [],
+                        "cssAttrs": {
+                            "backgroundColor": "#ffffff",
+                            "color": "#000000"
+                        },
+                        "autoUpdate": true,
+                        "hasSelection": true,
+                        "visualIds": [
+                            {
+                                "worksheet": "Sri Lanka (geodata.alekando.ru)"
+                            }
+                        ],
+                        "invalidSheets": [],
+                        "viewIds": {
+                            "Sri Lanka (geodata.alekando.ru)": "7713620505763405234_10944139994659924105"
+                        },
+                        "modifiedSheets": [
+                            {
+                                "sheetName": "Sri Lanka (geodata.alekando.ru)",
+                                "isDashboard": false
+                            }
+                        ],
+                        "dashboardDeviceLayouts": [
+                            "phone"
+                        ],
+                        "autogeneratedDeviceLayouts": [
+                            "phone"
+                        ],
+                        "previewBarIsVisible": false,
+                        "sizeMode": "size-mode-auto",
+                        "isCopiableZoneSelected": false,
+                        "singleValueFields": []
+                    },
+                    "sheetsInfo": [
+                        {
+                            "sheet": "Sri Lanka (geodata.alekando.ru)",
+                            "isDashboard": false,
+                            "isFlexibleLayout": false,
+                            "isVisible": true,
+                            "isPublished": true,
+                            "tabColor": "rgba(240,240,240,0)",
+                            "namesOfSubsheets": [],
+                            "minWidth": 0,
+                            "minHeight": 0,
+                            "maxWidth": 0,
+                            "maxHeight": 0,
+                            "windowId": "{E638DD27-3814-418E-9778-C5B442B0B127}"
+                        }
+                    ],
+                    "workbookModified": true,
+                    "editingPublishedDatasource": false,
+                    "workbookDraftSwitchToDataTabFailed": false
+                },
+                "dateFormat": "M/d/yyyy",
+                "timeFormat": "h:mm tt",
+                "numberFormats": [
+                    "",
+                    "-1",
+                    "t",
+                    "",
+                    "",
+                    "",
+                    "0",
+                    ".",
+                    ",",
+                    "3;0"
+                ],
+                "presentationLayerNotification": [
+                    {
+                        "keyId": "doc:selection-changed-event",
+                        "presModelHolder": {
+                            "genVisualIdpresModel": {
+                                "worksheet": "Sri Lanka (geodata.alekando.ru)"
+                            }
+                        }
+                    }
+                ],
+                "dashboardObjectsLibrary": []
+            },
+            "isWorldNew": false,
+            "guid": ""
+        },
+        "cmdResultList": [
+            {
+                "commandName": "tabsrv:select-region-no-return-server",
+                "commandReturn": {}
+            }
+        ]
+    }
+}
