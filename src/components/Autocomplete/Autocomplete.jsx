@@ -4,8 +4,11 @@ import {
     Input,
   } from '@chakra-ui/react'
 import './Autocomplete.css';
+
 const Autocomplete = (props) => {
+  const { handleSelectedValue } = props
   const [query, setQuery] = useState('');
+  const [selected, setSelected] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const token = '87305d59c4b74ea94b224da07841dfeb';
   let headers = {'Content-type': 'application/json','X-Requested-With': 'XMLHttpRequest'};
@@ -29,12 +32,16 @@ const Autocomplete = (props) => {
     }
   }, [query]);
 
+  useEffect(() => {
+    handleSelectedValue(selected);
+  }, [selected]);
+
   const handleInputChange = (event) => {
     setQuery(event.target.value);
   };
 
   const handleSuggestionClick = (suggestion) => {
-    setQuery(suggestion.customer);
+    setSelected(suggestion.customer);
     setSuggestions([]); // Clear suggestions when a suggestion is clicked
   };
 

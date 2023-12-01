@@ -7,7 +7,7 @@ import {
   IconButton,
   Input,
   SkeletonText,
-  Text,
+  Text, 
 } from "@chakra-ui/react";
 import { FaLocationArrow, FaTimes } from "react-icons/fa";
 //import Autocomplete from "./components/Autocomplete/Autocomplete";
@@ -24,17 +24,18 @@ const center = { lat: 6.931449, lng: 79.842215 };
 
 const App = () => {
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: 'AIzaSyCzBJGU7CpogIUEwW01ZaHqSLVlVC2nXF4',//import.meta.env.VITE_REACT_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: '',//import.meta.env.VITE_REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries: ["places"],
   });
   const [map, setMap] = useState(/** @type google.maps.Map */ (null));
   const [directionsResponse, setDirectionsResponse] = useState(null);
   const [distance, setDistance] = useState("");
   const [duration, setDuration] = useState("");
+  const [originAddress, setOriginAddress] = useState("");
+  const [destinationAddress, setDestinationAddress] = useState("");
   const origin = { lat: 6.7953, lng: 79.9386 };
-  const destination = { lat: 6.8494, lng: 79.9236 };
+  const destination = { lat: 6.8494, lng: 79.3236 };
   /** @type React.MutableRefObject<HTMLInputElement> */
-  const originRef = useRef();//6.7953,79.9386
   /** @type React.MutableRefObject<HTMLInputElement> */
   const destiantionRef = useRef();
   
@@ -43,28 +44,61 @@ const App = () => {
   }
 
   async function calculateRoute() {
-    if (originRef.current.value === "" || destiantionRef.current.value === "") {
+    console.log(originAddress);
+    if (originAddress === "" || destinationAddress === "") {
+      //originAddress = origin;
+     // destinationAddress = destination;
       return;
     }
+    //const lat_long = "6.931449, 79.842215";
+    //console.log(originAddress);
+    if (originAddress){
+      origin=coordination(originAddress);
+    }
+    if (destinationAddress){
+      destination=coordination(destinationAddress);
+    }
+
     // eslint-disable-next-line no-undef
     const directionsService = new google.maps.DirectionsService();
+    console.log(originAddress);
+    console.log(origin);
+    console.log(destinationAddress);
     const results = await directionsService.route({
-      origin: originRef.current.value,
-      destination: destiantionRef.current.value,
+      origin: origin,
+      destination: destination,
       // eslint-disable-next-line no-undef
       travelMode: google.maps.TravelMode.DRIVING,
     });
     setDirectionsResponse(results);
     setDistance(results.routes[0].legs[0].distance.text);
     setDuration(results.routes[0].legs[0].duration.text);
+
+  }
+
+  function coordination(coordinate){
+    const lat_long = coordinate;
+    const [lat, lng] = lat_long.split(',').map(coord => parseFloat(coord.trim()));
+    // Create the coordinates object
+    const coordinates = { lat, lng };
+    return coordinates;
   }
 
   function clearRoute() {
     setDirectionsResponse(null);
     setDistance("");
     setDuration("");
-    originRef.current.value = "";
-    destiantionRef.current.value = "";
+  }
+
+  const handleSelectedValue = (value, type) => {
+    
+     if(type === 'ORIGIN') {
+      console.log(value);
+      setOriginAddress(value)
+     } else if(type === 'DESTINATION'){
+      console.log(value);
+      setDestinationAddress(value)
+     }
   }
 
   return (
@@ -105,10 +139,10 @@ const App = () => {
       >
         <HStack spacing={2} justifyContent="space-between">
           <Box flexGrow={1}>
-            <Autocomplete innerRef={originRef} placeholder="Origin"/>
+            <Autocomplete handleSelectedValue={(value) => handleSelectedValue(value, "ORIGIN")} placeholder="Origin"/>
           </Box>
           <Box flexGrow={1}>
-            <Autocomplete innerRef={destiantionRef} placeholder="Destination" />
+            <Autocomplete handleSelectedValue={(value) => handleSelectedValue(value, "DESTINATION")}placeholder="Destination" />
           </Box>
 
           <ButtonGroup>
@@ -132,6 +166,7 @@ const App = () => {
             onClick={() => {
               map.panTo(center);
               map.setZoom(15);
+              console.log(center);
             }}
           />
         </HStack>

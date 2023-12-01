@@ -7,6 +7,7 @@ import './Autocomplete.css';
 const Autocomplete = (props) => {
   const [query, setQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
+  
   const token = '87305d59c4b74ea94b224da07841dfeb';
   let headers = {'Content-type': 'application/json','X-Requested-With': 'XMLHttpRequest'};
   if (token) {
@@ -15,7 +16,7 @@ const Autocomplete = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://127.0.0.1:7000/api/v1/postcodes?search=${query}`, {headers});
+        const response = await axios.get(`https://devapi.cc/api/locations?search=${query}`, {headers});
         setSuggestions(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -34,7 +35,7 @@ const Autocomplete = (props) => {
   };
 
   const handleSuggestionClick = (suggestion) => {
-    setQuery(suggestion.customer);
+    setQuery(suggestion.address);
     setSuggestions([]); // Clear suggestions when a suggestion is clicked
   };
 
@@ -48,8 +49,8 @@ const Autocomplete = (props) => {
       />
       <ul className="autocomplete-list">
         {suggestions.map((suggestion) => (
-          <li key={suggestion.id} onClick={() => handleSuggestionClick(suggestion)}>
-            {suggestion.customer}
+          <li key={suggestion.id} onClick={() => handleSuggestionClick(suggestion.lat_long)}>
+            {suggestion.address}
           </li>
         ))}
       </ul>
